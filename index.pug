@@ -1,0 +1,14 @@
+---
+layout: layouts/base.pug
+---
+- novels = collections.novelsSorted
+.main.rm-container
+  .rm-loop
+    each novel, index in novels
+      - chars = typeof collections[novel.data.novel] != "undefined" ? collections[novel.data.novel] : []
+      article.rm-item.roman
+        a(href=novel.url)
+          h2.item-title(style="background-image: url(" + func.header.url(novel.inputPath) + ")")=novel.data.title + " "
+            small=novel.data.year
+          .item-desc.tablet-block.desktop-block= `${chars.length} personnages`
+            

@@ -1,0 +1,6 @@
+.single-head
+  .item-title-wrapper
+    h1.item-title.with-image.image-loaded
+      img.background-image(src= func.header.url(page.inputPath))
+      .background-image-copyrights= func.header.copyright(resources)
+      | #{span=title} #{small=year}

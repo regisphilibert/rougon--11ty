@@ -1,0 +1,7 @@
+mixin formatCharName(c)
+  if(c.secondary_name)
+    span.secondary-name=c.secondary_name
+    span=" "
+  span.main-name=c.main_name
+  if(c.name_suffix)
+    span.name-suffix=c.name_suffix

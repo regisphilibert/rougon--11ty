@@ -1,0 +1,23 @@
+---
+layout: layouts/base.pug
+---
+include _includes/mixins.pug
+include _includes/novel/header.pug
+.main.rm-container
+  - characters = typeof collections[novel] !== "undefined" ? func.sortByName(collections[novel]) : []
+
+  .item-desc
+    each main , index in characters.filter((char => char.data.main))
+      a(href=main.url)
+        if(index)
+          span=' . '
+        span
+          +formatCharName(main.data)
+  .rm-content!=content
+  .rm-sidebar
+    .rm-widget.widget-chars.desktop-block
+      ul
+        each character in characters
+          li.bold
+            a(href=character.url)
+              +formatCharName(character.data)

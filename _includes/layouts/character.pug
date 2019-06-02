@@ -1,0 +1,21 @@
+---js
+{ 
+  layout: 'layouts/base.pug'
+}
+---
+
+.main.rm-container
+  .single-head
+    .item-title-wrapper
+      h1.item-title #{title}
+
+    if(typeof tags != "undefined")
+      .item-desc
+        each novel, index in collections.novelsSorted.filter((novel) => tags.includes(novel.data.novel))
+          a(href=novel.url)
+            if(index)
+              span=' . '
+            span= novel.data.title
+
+  .rm-content.rm-html
+    .item-content!=content

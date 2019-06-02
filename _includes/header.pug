@@ -1,0 +1,21 @@
+header.rm-header
+  .rm-container
+    .rm-header__grid
+      .rm-header__main
+        a.brand(href="/")
+          h2.emile Émile Zola
+          h1.brand-name Les Rougon-Macquart
+      .rm-header__aside(style="background-image:url(/images/header_image.jpg)")
+.main-nav-wrapper
+  .scroll-wrapper
+    i.fa.fa-bars.rm-menu-icon
+    .main-nav
+      ul
+        each page in collections.pages
+          li 
+            a(href=page.url)=page.data.title
+        li 
+          a(href="/") Les Romans
+        each novel in collections.novelsSorted
+          li.child
+            a(href=novel.url)=novel.data.title
